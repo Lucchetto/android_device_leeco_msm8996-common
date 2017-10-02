@@ -153,6 +153,8 @@ PRODUCT_PACKAGES += \
 # Camera
 PRODUCT_PACKAGES += \
     Snap \
+    android.hardware.camera.provider@2.4-service \
+    camera.device@3.2-impl \
     android.hardware.camera.provider@2.4-impl \
     libstlport
 
@@ -375,12 +377,6 @@ PRODUCT_COPY_FILES += \
 # Set default USB interface
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
     persist.sys.usb.config=mtp
-
-ifeq ($(TARGET_BUILD_VARIANT),eng)
-# Disable ADB authentication
-ADDITIONAL_DEFAULT_PROPERTIES += ro.adb.secure=0
-endif
-
 
 # Model is set via init library
 PRODUCT_SYSTEM_PROPERTY_BLACKLIST := \
