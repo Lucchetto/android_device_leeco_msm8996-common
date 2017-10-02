@@ -1,3 +1,4 @@
+# Copyright (C) 2016 The CyanogenMod Project
 # Copyright (C) 2017 The LineageOS Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -14,13 +15,44 @@
 
 LOCAL_PATH := $(call my-dir)
 
+
+#libcamera_shim
 include $(CLEAR_VARS)
 
-LOCAL_SRC_FILES := MediaBuffer.c
+LOCAL_SRC_FILES := camera_shim.cpp
+LOCAL_MODULE := libshims_camera
+LOCAL_MODULE_TAGS := optional
+LOCAL_MODULE_CLASS := SHARED_LIBRARIES
+LOCAL_SHARED_LIBRARIES := \
+    libgui \
+    libui
 
-LOCAL_SHARED_LIBRARIES := libstagefright_foundation
+include $(BUILD_SHARED_LIBRARY)
 
-LOCAL_MODULE := libshims_ims
+
+# qcamera-daemon_shim
+include $(CLEAR_VARS)
+
+LOCAL_SRC_FILES := \
+    bionic/bionic_time_conversions.cpp \
+    bionic/pthread_cond.cpp
+
+LOCAL_SHARED_LIBRARIES := libc
+
+LOCAL_MODULE := libshims_qcamera-daemon
+LOCAL_MODULE_TAGS := optional
+
+LOCAL_32_BIT_ONLY := true
+
+include $(BUILD_SHARED_LIBRARY)
+
+
+# libshims_get_process_name
+include $(CLEAR_VARS)
+
+LOCAL_SRC_FILES := get_process_name.c
+
+LOCAL_MODULE := libshims_get_process_name
 LOCAL_MODULE_TAGS := optional
 
 include $(BUILD_SHARED_LIBRARY)
