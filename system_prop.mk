@@ -170,6 +170,13 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.config.le_hardware_version=HW_1.0.0
 
 #ril.subscription.types=NV,RUIM
+    persist.radio.start_ota_daemon=0 \
+    persist.data.iwlan.enable=true \
+    persist.radio.VT_ENABLE=1 \
+    persist.radio.REVERSE_QMI=0 \
+    persist.radio.ROTATION_ENABLE=1 \
+    persist.dbg.volte_avail_ovr=1 \
+    persist.dbg.vt_avail_ovr=1
 
 #default SAR mode 0:off/1:on
 PRODUCT_PROPERTY_OVERRIDES += \
