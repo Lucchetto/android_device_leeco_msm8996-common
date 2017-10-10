@@ -40,9 +40,7 @@ enum SCREEN_DISPLAY_TYPE {
 };
 
 enum PWR_CLSP_TYPE {
-#ifdef MPCTLV3
     ALL_CPUS_PWR_CLPS_DIS_V3 = 0x40400000, /* v3 resource */
-#endif
     ALL_CPUS_PWR_CLPS_DIS = 0x101,
 };
 
@@ -100,10 +98,8 @@ enum CPU3_MAX_FREQ_LVL {
 };
 
 enum MIN_CPUS_ONLINE_LVL {
-#ifdef MPCTLV3
     CPUS_ONLINE_MIN_BIG = 0x41000000, /* v3 resource */
     CPUS_ONLINE_MIN_LITTLE = 0x41000100, /* v3 resource */
-#endif
     CPUS_ONLINE_MIN_2 = 0x702,
     CPUS_ONLINE_MIN_3 = 0x703,
     CPUS_ONLINE_MIN_4 = 0x704,
@@ -112,10 +108,8 @@ enum MIN_CPUS_ONLINE_LVL {
 };
 
 enum MAX_CPUS_ONLINE_LVL {
-#ifdef MPCTLV3
     CPUS_ONLINE_MAX_LIMIT_BIG = 0x41004000, /* v3 resource */
     CPUS_ONLINE_MAX_LIMIT_LITTLE = 0x41004100, /* v3 resource */
-#endif
     CPUS_ONLINE_MAX_LIMIT_1 = 0x8FE,
     CPUS_ONLINE_MAX_LIMIT_2 = 0x8FD,
     CPUS_ONLINE_MAX_LIMIT_3 = 0x8FC,
@@ -139,7 +133,6 @@ enum ONDEMAND_SAMPLING_DOWN_FACTOR_LVL {
     SAMPLING_DOWN_FACTOR_4 = 0xD04,
 };
 
-
 enum INTERACTIVE_TIMER_RATE_LVL {
     TR_MS_500 = 0xECD,
     TR_MS_100 = 0xEF5,
@@ -149,7 +142,7 @@ enum INTERACTIVE_TIMER_RATE_LVL {
 };
 
 /* This timer rate applicable to cpu0
-    across 8939 series chipset */
+    across 8939/8952 series chipset */
 enum INTERACTIVE_TIMER_RATE_LVL_CPU0_8939 {
     TR_MS_CPU0_500 = 0x30CD,
     TR_MS_CPU0_100 = 0x30F5,
@@ -159,7 +152,7 @@ enum INTERACTIVE_TIMER_RATE_LVL_CPU0_8939 {
 };
 
 /* This timer rate applicable to cpu4
-    across 8939 series chipset */
+    across 8939/8952 series chipset */
 enum INTERACTIVE_TIMER_RATE_LVL_CPU4_8939 {
     TR_MS_CPU4_500 = 0x3BCD,
     TR_MS_CPU4_100 = 0x3BF5,
@@ -170,7 +163,6 @@ enum INTERACTIVE_TIMER_RATE_LVL_CPU4_8939 {
 
 enum INTERACTIVE_HISPEED_FREQ_LVL {
     HS_FREQ_1026 = 0xF0A,
-    HS_FREQ_800  = 0xF08,
 };
 
 enum INTERACTIVE_HISPEED_LOAD_LVL {
@@ -200,9 +192,11 @@ enum SCREEN_PWR_CLPS_LVL {
 
 enum THREAD_MIGRATION_LVL {
     THREAD_MIGRATION_SYNC_OFF = 0x1400,
-#ifdef MPCTLV3
-    THREAD_MIGRATION_SYNC_ON_V3 = 0x4241C000
-#endif
+};
+
+enum SCHED_GUIDED_LVL {
+    INTERACTIVE_USE_SCHED_LOAD_OFF = 0x5201,
+    INTERACTIVE_USE_MIGRATION_NOTIF_OFF = 0x5301
 };
 
 enum INTERACTIVE_IO_BUSY_LVL {
@@ -211,9 +205,7 @@ enum INTERACTIVE_IO_BUSY_LVL {
 };
 
 enum SCHED_BOOST_LVL {
-#ifdef MPCTLV3
     SCHED_BOOST_ON_V3 = 0x40C00000, /* v3 resource */
-#endif
     SCHED_BOOST_ON = 0x1E01,
 };
 
@@ -254,9 +246,6 @@ enum CPU7_MAX_FREQ_LVL {
 };
 
 enum SCHED_PREFER_IDLE {
-#ifdef MPCTLV3
-    SCHED_PREFER_IDLE_DIS_V3 = 0x40C04000,
-#endif
     SCHED_PREFER_IDLE_DIS = 0x3E01,
 };
 
@@ -264,7 +253,6 @@ enum SCHED_MIGRATE_COST_CHNG {
     SCHED_MIGRATE_COST_SET = 0x3F01,
 };
 
-#ifdef MPCTLV3
 /**
  * MPCTL v3 opcodes
  */
@@ -289,9 +277,6 @@ enum INTERACTIVE_CLUSTER_BIG {
     GO_HISPEED_LOAD_BIG         = 0x41410000,
     HISPEED_FREQ_BIG            = 0x41414000,
     TARGET_LOADS_BIG            = 0x41420000,
-    TIMER_RATE_BIG              = 0x41424000,
-    USE_SCHED_LOAD_BIG          = 0x41430000,
-    USE_MIGRATION_NOTIF_BIG     = 0x41434000,
     IGNORE_HISPEED_NOTIF_BIG    = 0x41438000,
 };
 
@@ -300,9 +285,6 @@ enum INTERACTIVE_CLUSTER_LITTLE {
     GO_HISPEED_LOAD_LITTLE      = 0x41410100,
     HISPEED_FREQ_LITTLE         = 0x41414100,
     TARGET_LOADS_LITTLE         = 0x41420100,
-    TIMER_RATE_LITTLE           = 0x41424100,
-    USE_SCHED_LOAD_LITTLE       = 0x41430100,
-    USE_MIGRATION_NOTIF_LITTLE  = 0x41434100,
     IGNORE_HISPEED_NOTIF_LITTLE = 0x41438100,
 };
 
@@ -315,20 +297,12 @@ enum CPUBW_HWMON {
 };
 
 enum SCHEDULER {
-    SCHED_SMALL_TASK_DIS        = 0x40C0C000,
-    SCHED_IDLE_LOAD_DIS         = 0x40C10000,
-    SCHED_IDLE_NR_RUN_DIS       = 0x40C14000,
     SCHED_GROUP_ON              = 0x40C28000,
 };
 
 enum STORAGE {
     STOR_CLK_SCALE_DIS          = 0x42C10000,
 };
-
-enum GPU {
-    GPU_MIN_PWRLVL_BOOST        = 0x42804000,
-};
-#endif
 
 #ifdef __cplusplus
 }
