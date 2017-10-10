@@ -155,13 +155,12 @@ PRODUCT_PACKAGES += \
     Snap \
     camera.device@3.2-impl \
     android.hardware.camera.provider@2.4-impl \
-    android.hardware.camera.provider@2.4-service \
-    libstlport
+    android.hardware.camera.provider@2.4-service
 
 # Shims
-PRODUCT_PACKAGES += \
-    libcamera_shim \
-    qcamera-daemon_shim
+#PRODUCT_PACKAGES += \
+#    libcamera_shim \
+#    qcamera-daemon_shim
 
 # Connectivity Engine support (CNE)
 PRODUCT_PACKAGES += \
