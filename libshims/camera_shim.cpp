@@ -14,13 +14,14 @@
  * limitations under the License.
  */
 
+#include <string>
+
+#include <ui/GraphicBuffer.h>
+
 const char *_ZN7android18gClientPackageNameE;
 const char *_ZN7android16CameraParameters19CLIENT_PACKAGE_NAMEE = "client-package-name";
 const char *_ZN7android16CameraParameters31KEY_SUPPORTED_VIDEO_SIZES_60FPSE = "support-60fps-video-sizes";
 
-#include <string>
-
-#include <ui/GraphicBuffer.h>
 
 extern "C" void _ZN7android13GraphicBufferC1EjjijjjP13native_handleb(
         const native_handle_t* handle,
