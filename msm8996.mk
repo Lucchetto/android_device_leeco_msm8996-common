@@ -141,13 +141,13 @@ PRODUCT_COPY_FILES += \
 
 
 # ANT+
-#PRODUCT_PACKAGES += \
-#    AntHalService \
-#    com.dsi.ant.antradio_library \
-#    libantradio
+PRODUCT_PACKAGES += \
+    AntHalService \
+    com.dsi.ant.antradio_library \
+    libantradio
 
-#PRODUCT_COPY_FILES += \
-#    external/ant-wireless/antradio-library/com.dsi.ant.antradio_library.xml:system/etc/permissions/com.dsi.ant.antradio_library.xml
+PRODUCT_COPY_FILES += \
+    external/ant-wireless/antradio-library/com.dsi.ant.antradio_library.xml:system/etc/permissions/com.dsi.ant.antradio_library.xml
 
 # Bluetooth
 PRODUCT_PACKAGES += \
@@ -326,6 +326,12 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     libjson 
 
+# RCS
+PRODUCT_PACKAGES += \
+    rcs_service_aidl \
+    rcs_service_aidl.xml \
+    rcs_service_api \
+    rcs_service_api.xml
 
 # RenderScript HAL
 PRODUCT_PACKAGES += \
@@ -333,6 +339,7 @@ PRODUCT_PACKAGES += \
 
 # RIL
 PRODUCT_PACKAGES += \
+    android.hardware.broadcastradio@1.0-impl \
     librmnetctl \
     rmnetcli \
     libxml2 \
