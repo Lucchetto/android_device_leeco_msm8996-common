@@ -39,20 +39,20 @@
     <!-- Vibrator pattern for feedback about a long screen/key press -->
     <integer-array name="config_longPressVibePattern">
         <item>0</item>
-        <item>25</item>
+        <item>18</item>
         <item>10</item>
     </integer-array>
 
     <!-- Vibrator pattern for feedback about touching a virtual key -->
     <integer-array name="config_virtualKeyVibePattern">
         <item>0</item>
-        <item>25</item>
+        <item>18</item>
         <item>8</item>
     </integer-array>
 
     <!-- Vibrator pattern for a very short but reliable vibration for soft keyboard tap -->
     <integer-array name="config_keyboardTapVibePattern">
-        <item>25</item>
+        <item>16</item>
     </integer-array>
 
     <!-- Control the behavior when the user long presses the home button
@@ -413,6 +413,9 @@
          Used to decide if we show pulse settings -->
     <bool name="config_ledCanPulse">true</bool>
 
+    <bool name="config_deviceHasVariableButtonBrightness">true</bool>
+    <integer name="config_buttonBrightnessSettingDefault">255</integer>
+    <bool name="config_deviceHasButtonBacklight">true</bool>
 
     <!-- Control the behavior when the user long presses the app switch button.
             0 - Nothing
