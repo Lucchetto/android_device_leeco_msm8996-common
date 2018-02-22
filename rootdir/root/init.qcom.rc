@@ -45,6 +45,13 @@ on init
     # Set permissions for persist partition
     mkdir /persist 0771 system system
 
+    # update cpusets now that processors are up
+    write /dev/cpuset/top-app/cpus 0-3
+    write /dev/cpuset/foreground/cpus 0-3
+    write /dev/cpuset/foreground/boost/cpus 0-3
+    write /dev/cpuset/background/cpus 0-3
+    write /dev/cpuset/system-background/cpus 0-3
+
     # Support legacy paths
     symlink /sdcard /storage/sdcard0
 
