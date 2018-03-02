@@ -77,8 +77,6 @@ on init
     write /sys/devices/platform/kcal_ctrl.0/kcal 238 241 256
     write /sys/devices/platform/kcal_ctrl.0/kcal_cont 261
 
-    # Disable touch boost
-    write /sys/module/cpu_boost/parameters/input_boost_enabled 0
 on fs
     wait /dev/block/platform/soc/${ro.boot.bootdevice}
     symlink /dev/block/platform/soc/${ro.boot.bootdevice} /dev/block/bootdevice
