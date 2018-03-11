@@ -150,7 +150,6 @@ on charger
     write /sys/module/lpm_levels/parameters/sleep_disabled 0
 
 on property:dev.bootcomplete=1
-    setprop sys.io.scheduler "maple"
 
     # Update cpusets now that boot is complete and we want better load balancing
     write /dev/cpuset/top-app/cpus 0-3
