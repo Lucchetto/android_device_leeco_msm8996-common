@@ -71,6 +71,10 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.leeco.devinfo=NULL
 
+# Disable eBPF
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.kernel.ebpf.supported=false
+
 # Display (Qualcomm Assertive Display)
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.qcom.ad=1 \
